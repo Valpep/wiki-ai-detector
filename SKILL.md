@@ -5,128 +5,193 @@ description: "Detect AI-generated text by identifying characteristic patterns, p
 
 # AI Text Detection Guide
 
-Derived from Wikipedia's empirically documented field guide on LLM writing patterns. Applicable to any text — not just Wikipedia.
+Based on Wikipedia's community-maintained guide (editorial heuristics, not a definitive detector). Applicable to any text — not just Wikipedia.
+
+---
 
 ## How to analyze text
 
-Scan for signals across the categories below. Weight **clusters** more heavily than isolated occurrences — one "pivotal" is coincidence; five AI-vocab words in a paragraph is a strong signal.
+Scan for signals across the categories below.  
+Weight **clusters** more heavily than isolated occurrences:
 
-**Output format:** Quote specific examples from the text, categorize each signal, then give an overall verdict: **Likely AI / Possibly AI / Likely Human** with brief reasoning.
+- One signal → coincidence  
+- Multiple signals in proximity → strong indicator  
+
+---
+
+## Output format (strict)
+
+For each detected signal:
+
+- **Quote**: exact fragment from the text  
+- **Category**: which signal type it belongs to  
+- **Explanation**: short, specific reasoning  
+
+Then:
+
+---
+**Final verdict:** Likely AI / Possibly AI / Likely Human  
+**Confidence:** Low / Medium / High  
 
 ---
 
 ## 1. AI Vocabulary Density (strongest signal)
 
-LLMs statistically overuse specific words. Check for density/clusters.
+LLMs statistically overuse specific words. Check for density and clustering.
 
-See **[word-lists.md](references/word-lists.md)** for the complete list by model era.
+See **[word-lists.md](references/word-lists.md)** for full lists.
 
-Quick scan: *pivotal, underscore, tapestry, delve, meticulous, vibrant, intricate, testament, bolstered, garner, fostering, showcasing, align with, enhance, highlighting*
+Quick scan examples:  
+*pivotal, underscore, tapestry, delve, meticulous, vibrant, intricate, testament, bolstered, garner, fostering, showcasing, align with, enhance, highlighting*
 
-One word = coincidence. Five+ in a short passage = strong AI signal.
+Rule:
+- 1 word → ignore  
+- 3+ → suspicious  
+- 5+ in short passage → strong signal  
 
 ---
 
 ## 2. Content Patterns
 
 ### Significance inflation
-Adds statements about how mundane facts "represent a shift," "mark a pivotal moment," or "contribute to the broader landscape" — even for population data or etymology.
+Adds artificial importance to neutral facts.
 
-Trigger phrases: *stands as, serves as, marks a pivotal, underscores its importance, reflects broader, symbolizing its enduring, setting the stage for, indelible mark, deeply rooted, evolving landscape*
+Examples:
+- *marks a pivotal moment*
+- *represents a shift*
+- *underscores its importance*
+- *reflects broader trends*
+
+---
 
 ### Challenges formula
-Rigid structure, usually at the end: *"Despite its [positive adjective], [subject] faces challenges including... Despite these challenges, [vague optimism about the future]."*
+Rigid structure:
+- "Despite X, it faces challenges..."
+- "Despite these challenges..."
+
+---
 
 ### Superficial -ing clauses
-Tacks present participle phrases onto sentences as pseudo-analysis:
-*"...highlighting its importance," "...underscoring the significance," "...reflecting the broader trend."*
+Adds fake analytical depth at sentence end:
+- *highlighting its importance*
+- *underscoring the significance*
 
-### Vague attribution weaseling
-Attributes claims to no one specific: *"Experts argue," "Observers have noted," "Industry reports suggest," "Several sources indicate," "Some critics argue."*
+---
 
-### Promotional/travel-guide tone
-Warm, advertisement-like prose even on neutral topics: *nestled, vibrant, rich cultural heritage, breathtaking, diverse array, boasts, showcasing, groundbreaking, renowned, in the heart of.*
+### Vague attribution (weasel language)
+No clear source:
+- *Experts argue*
+- *Studies suggest*
+- *Observers have noted*
+
+---
+
+### Promotional / travel tone
+Unnaturally warm or рекламный стиль:
+- *vibrant*
+- *breathtaking*
+- *rich cultural heritage*
+- *renowned*
 
 ---
 
 ## 3. Sentence Structure Tells
 
 ### Copula avoidance
-Replaces simple "is/are/has" with elaborate constructions:
-- ❌ *"serves as the primary hub"* → ✅ "is the primary hub"
-- ❌ *"marks a significant milestone"* → ✅ "was a significant milestone"
-- ❌ *"boasts four separate spaces"* → ✅ "has four separate spaces"
+Avoids simple verbs:
+- ❌ *serves as* → ✅ *is*
+- ❌ *boasts* → ✅ *has*
+
+---
 
 ### Negative parallelisms
-Pseudo-balance: *"Not only X, but also Y"*, *"It's not just X, it's Y"*, *"Not X — it's Y."* Sounds thoughtful but is formulaic.
+Formulaic balance:
+- *Not only X, but also Y*
+- *It's not just X, it's Y*
+
+---
 
 ### Rule of three
-Compulsive tripling: "adjective, adjective, and adjective" or "phrase, phrase, and phrase" even when two or four would be more natural.
+Unnatural triplets:
+- *X, Y, and Z* used excessively
+
+---
 
 ### Elegant variation
-Avoids repeating a word by substituting awkward synonyms throughout: subject → "the eponymous figure" → "the key player" → "this individual."
+Unnatural synonym switching:
+- subject → *the figure* → *this individual*
 
 ---
 
 ## 4. Formatting Tells
 
-- **Title Case In Every Section Heading** (humans normally use sentence case)
-- **Excessive boldface** — bolding key takeaways scattered throughout body text
-- **Inline-header lists**: `• **Bold Term**: description text` pattern
-- **Emoji** in headings or bullet points 🎯
-- **Em dash overuse** — used dramatically — where a comma or parenthesis would do — often multiple times per paragraph
-- **Unnecessary tables** for 2–3 data points that should just be prose
-- **Curly quotes** (" " ' ') instead of straight quotes (" ') — common in ChatGPT/DeepSeek
+- Title Case headings everywhere  
+- Excessive bold text  
+- Emoji usage 🎯  
+- Em dash overuse  
+- Inline bold definition lists  
+- Unnecessary tables  
+- Curly quotes  
 
 ---
 
 ## 5. Communication Leakage
 
-Text meant for the AI chat interface that got pasted into the document:
-- *"I hope this helps," "Would you like me to...", "Let me know if you need anything else"*
-- Knowledge-cutoff disclaimers: *"as of my last update," "not widely documented," "maintains a low profile"*
-- Unfilled placeholders: `[INSERT NAME HERE]`, `[Describe the specific section]`
-- Subject lines in body text: *"Subject: Request for Edit"*
-- Submission statements: *"This article meets WP:RS because..."*
+Artifacts from chat interface:
+
+- *I hope this helps*
+- *Let me know if you need*
+- *Would you like me to*
+
+Also:
+- placeholders `[INSERT...]`
+- subject lines inside body
+- meta-statements about the document
 
 ---
 
-## 6. Citation & Markup Artifacts (documents/web content)
+## 6. Citation & Markup Artifacts
 
-Technical residue from specific AI tools:
-- `turn0search0`, `turn0search1` — ChatGPT search citation artifacts
-- `contentReference[oaicite:0]{index=0}` — ChatGPT reference rendering bug
-- `oai_citation`, `+1` inline — ChatGPT markup bugs
-- `{"attribution":{"attributableIndex":"X-Y"}}` — ChatGPT JSON attribution
-- `utm_source=chatgpt.com` or `utm_source=openai` in URLs
-- `[attached_file:1]`, `[web:1]` — Perplexity artifacts
-- `<grok_card ...>` — Grok artifacts
-- Invalid/unresolvable DOIs or ISBNs with correct-looking formats
-- Book citations with no page numbers
+Technical residue:
+
+- `turn0search0`
+- `contentReference[...]`
+- `oai_citation`
+- `utm_source=chatgpt.com`
+- `[attached_file:1]`
+- `<grok_card>`
 
 ---
 
 ## 7. Older Model Tells (2022–2024)
 
-Less common in newer models, useful for auditing older content:
-- *"It's important to note that..."*, *"It's crucial to remember..."*
-- *"In summary," "In conclusion," "Overall,"* ending sections
-- *"As an AI language model, I..."* partial refusals
-- Text cut off abruptly mid-sentence
+- *It's important to note that...*
+- *In conclusion...*
+- *Overall...*
+- abrupt cutoffs  
 
 ---
 
-## False Positives — Do NOT flag these alone
+## False Positives — do NOT flag alone
 
-- Perfect grammar
-- Formal or academic prose style in general
-- Transition words (*Additionally, Furthermore*) in isolation
-- Unsourced claims
-- Long, detailed, thorough writing
-- Letter-like formatting with salutations
+- Correct grammar  
+- Formal tone  
+- Transition words  
+- Long structured text  
+- Unsourced claims  
+
+---
+
+## Scoring guideline
+
+- 1–2 weak signals → Possibly AI (low confidence)  
+- 3–5 mixed signals → Likely AI (medium confidence)  
+- 5+ strong clustered signals → Likely AI (high confidence)  
+
+Clusters matter more than isolated signals.
 
 ---
 
 ## Reference
 
-- **[word-lists.md](references/word-lists.md)** — Complete AI vocabulary lists by model era for systematic scanning
+- **[word-lists.md](references/word-lists.md)** — vocabulary and pattern lists by model era
