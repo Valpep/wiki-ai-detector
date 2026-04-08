@@ -1,6 +1,7 @@
 ---
 name: wikipedia-not-ai
-description: "Detect AI-generated text by identifying characteristic patterns, phrases, and structural tells from LLMs like ChatGPT, Gemini, and others. Use when the user wants to check if a text was written by AI, audit content for AI tells, clean up AI-generated writing to make it less detectable, understand what makes text sound AI-generated, or review emails, articles, reports, marketing copy, or any prose for AI markers."
+description: Detect AI-generated text using Wikipedia-based patterns and structural signals.
+keywords: [ai-detection, llm, writing-analysis]
 ---
 
 # AI Text Detection Guide
