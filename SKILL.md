@@ -249,6 +249,46 @@ In Russian/Ukrainian popular science this is one of the strongest tells — a co
 
 ---
 
+## 13. Theatrical Narration (multilingual, 2026)
+
+LLMs distrust that a fact is interesting on its own, so they constantly *announce* importance and *stage* the reading experience. Where a human writer uses these devices sparingly (one drumroll per essay), AI uses them as a default rhythm — every 2–3 paragraphs. Closely related to Subtext vacuum (Section 12): the model is talking *at* a reader it can't actually model, so it manually choreographs the emotional reaction.
+
+### Drumroll phrases (announcing importance before delivering it)
+
+EN: *Here's the kicker / Wait, it gets better / Plot twist: / Buckle up / But that's not all / Here's where it gets interesting / And here's the magic*
+
+RU: *И тут на сцену выходит… / А теперь – внимание! – самое интересное / И вот здесь начинается магия / Но это ещё не всё / Готовьтесь, сейчас будет поворот / Спойлер:*
+
+UA: *І тут на сцену виходить… / А тепер – увага! – найцікавіше / І ось тут починається магія / Але це ще не все / Спойлер:*
+
+### Fake pauses (artificial slow-down)
+
+EN: *Let's pause here for a moment / Before we move on / Take a breath / Step back for a second*
+
+RU: *И вот здесь нужно остановиться / Давайте на секунду задержимся / Прежде чем двигаться дальше / Сделаем паузу*
+
+UA: *І ось тут потрібно зупинитися / Давайте на секунду затримаємося / Перш ніж рухатися далі / Зробимо паузу*
+
+### Pseudo-dialogue with the reader (manufactured presence)
+
+EN: *What do you think? / Interesting, right? / You know what's funny? / Can you guess where this is going?*
+
+RU: *А ты как думаешь? / Интересно, правда? / Знаете, что самое забавное? / Догадываетесь, к чему я клоню?*
+
+UA: *А ти як думаєш? / Цікаво, правда? / Знаєте, що найкумедніше? / Здогадуєтеся, до чого я веду?*
+
+### Why this is a tell, not just bad style
+
+A human writer *chooses* to use a drumroll — and uses it once, where it earns its place. An LLM *defaults* to it because the model doesn't trust that the underlying fact will land. If the same text contains 3+ drumrolls, 2+ fake pauses, or pseudo-dialogue every few paragraphs, that pattern is structural, not stylistic.
+
+**Test:** delete every drumroll, fake pause, and rhetorical question in the text. If the remaining content is still coherent and the meaning is unchanged, the staging was filler — strong AI signal.
+
+### False positive guard
+
+Stand-up comedy, podcast transcripts, motivational speaking, and children's writing legitimately use these devices often. Weight them by *genre* — in straight prose (essay, news, analysis, marketing copy, popsci), even one or two of these per page is unusual; in scripted oral genres, the bar is much higher.
+
+---
+
 ## False Positives — Do NOT flag these alone
 
 - Perfect grammar
