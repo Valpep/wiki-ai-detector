@@ -13,7 +13,7 @@ Scan for signals across the categories below. Weight **clusters** more heavily t
 
 **Output format:** Quote specific examples from the text, categorize each signal, then give an overall verdict: **Likely AI / Possibly AI / Likely Human** with brief reasoning.
 
-**Important:** Newer models (GPT-5.1+, Claude 4+) actively suppress known tells like em dashes and classic AI vocabulary. Absence of classic markers is NOT proof of human origin. Look for subtler patterns: overly cautious hedging, Latinate word preference, "quietly" narratives, structural uniformity, and the four deeper tells in Section 12 (abstraction trap, sensing without sensing, treadmill effect, subtext vacuum) — these are the most reliable signals on modern models.
+**Important:** Newer models (GPT-5.1+, Claude 4+) actively suppress known tells like em dashes and classic AI vocabulary. Absence of classic markers is NOT proof of human origin. Look for subtler patterns: overly cautious hedging, Latinate word preference, "quietly" narratives, structural uniformity, the four deeper tells in Section 12 (abstraction trap, sensing without sensing, treadmill effect, subtext vacuum), and the in-disguise patterns in Sections 14–16 (decorative triplets, drumroll-in-disguise, false idioms/calques) — these are the most reliable signals on modern models.
 
 ---
 
@@ -77,10 +77,10 @@ Systematically chooses Latin/Greek-derived words over simpler Germanic equivalen
 This is distinct from copula avoidance — it's about lexical register, not syntax. As Orwell noted, bad writers are "haunted by the notion that Latin or Greek words are grander than Saxon ones." LLMs embody this tendency statistically.
 
 ### Negative parallelisms
-Pseudo-balance: *"Not only X, but also Y"*, *"It's not just X, it's Y"*, *"Not X — it's Y."* Sounds thoughtful but is formulaic.
+Pseudo-balance: *"Not only X, but also Y"*, *"It's not just X, it's Y"*, *"Not X — it's Y."* Sounds thoughtful but is formulaic. See Section 14 for the more specific *decorative triplets* extension of this pattern.
 
 ### Rule of three
-Compulsive tripling: "adjective, adjective, and adjective" or "phrase, phrase, and phrase" even when two or four would be more natural.
+Compulsive tripling: "adjective, adjective, and adjective" or "phrase, phrase, and phrase" even when two or four would be more natural. The decorative subtype is now treated separately — see Section 14.
 
 ### Elegant variation
 Avoids repeating a word by substituting awkward synonyms throughout: subject → "the eponymous figure" → "the key player" → "this individual."
@@ -261,6 +261,8 @@ RU: *И тут на сцену выходит… / А теперь – вним�
 
 UA: *І тут на сцену виходить… / А тепер – увага! – найцікавіше / І ось тут починається магія / Але це ще не все / Спойлер:*
 
+For the *masked* variant of this pattern — drumroll dressed up as a neutral connective — see Section 15.
+
 ### Fake pauses (artificial slow-down)
 
 EN: *Let's pause here for a moment / Before we move on / Take a breath / Step back for a second*
@@ -289,6 +291,157 @@ Stand-up comedy, podcast transcripts, motivational speaking, and children's writ
 
 ---
 
+## 14. Decorative triplets (extension of Rule of three)
+
+Rule of three is a human technique with a long history — when used iteratively (weak → stronger → strongest), or to draw a real contrast, or to enumerate three actually distinct things, it earns its place. *Decorative* triplets are different. The third member is synonymic with the first two; it adds rhythm, not information. LLMs default to decorative triplets because three feels balanced statistically, even when the third slot has nothing new to put in it.
+
+### How a decorative triplet differs from a real triplet
+
+A real triplet has either an *escalation*, a *contrast*, or three genuinely distinct elements:
+- "Good, fast, cheap — pick two." (contrast: the items are in tension)
+- "He came, he saw, he conquered." (escalation: each verb upgrades the previous)
+- "Mind, body, and spirit." (distinct domains, even if you don't buy the metaphysics)
+
+A decorative triplet has three near-synonyms doing the same work:
+- "a rich, vibrant, and dynamic culture"
+- "a comprehensive, robust, and thorough analysis"
+- "a sustainable, scalable, and lasting solution"
+
+### Multilingual examples
+
+**EN decorative triplets (typical AI output):**
+- *rich, diverse, and vibrant* (heritage / culture / community)
+- *practical, evidence-based, and effective* (approach / framework / methodology)
+- *sustainable, scalable, and lasting*
+- *robust, reliable, and resilient*
+- *innovative, transformative, and groundbreaking*
+
+**RU декоративные триплеты:**
+- *системный, последовательный, устойчивый* подход
+- *комплексный, многоаспектный, всеобъемлющий* анализ
+- *надёжный, проверенный, эффективный* инструмент
+- *устойчивый, масштабируемый, долгосрочный* результат
+
+**UK декоративні триплети:**
+- *системний, послідовний, стійкий* підхід
+- *практичний, доказово-орієнтований, дієвий* інструмент
+- *комплексний, багатоаспектний, всеосяжний* аналіз
+
+### Test
+
+Drop the third element. If the meaning is unchanged — it was decorative. If the meaning narrows or loses force — it was a real triplet.
+
+- "a rich, vibrant culture" — still works → third was decorative
+- "Good, fast — pick two" — broken → third was structural
+
+### Pattern density signal
+
+One decorative triplet in a long article is noise. Three or more in the same piece — especially in headline positions (titles, opening sentences, summary blocks) — is a structural AI tell. Pair this with significance inflation (Section 2) and you have one of the cleanest signatures in current AI marketing copy.
+
+---
+
+## 15. Drumroll-in-disguise (covert announcement)
+
+The Section 13 drumrolls are *theatrical* — they declare themselves («А тепер увага», «Wait, it gets better»). Drumroll-in-disguise is the same function wearing a neutral suit. The model still wants to flag importance, but it uses connectives that read as ordinary academic prose, so the staging is invisible at first glance. The give-away is *function over content*: the phrase announces that something noteworthy is about to follow — but the thing that follows is not particularly noteworthy. The staging fires by reflex, regardless of payload.
+
+### The phrases
+
+**EN:**
+- *It's worth noting that...*
+- *Notably,...*
+- *Interestingly,...*
+- *Of note,...*
+- *It bears mentioning that...*
+- *One should mention that...*
+- *Worth pointing out:...*
+
+**RU:**
+- *Стоит отметить, что...*
+- *Стоит подчеркнуть...*
+- *Примечательно, что...*
+- *Интересно, что...*
+- *Обращает на себя внимание тот факт, что...*
+- *Нельзя не отметить, что...*
+- *Нельзя не заметить, что...*
+- *Заслуживает внимания тот факт, что...*
+
+**UK:**
+- *Варто зазначити, що...*
+- *Варто підкреслити...*
+- *Цікаво, що...*
+- *Звертає на себе увагу той факт, що...*
+- *Не можна не помітити...*
+- *Не можна не зазначити...*
+- *Заслуговує на увагу...*
+
+### How to distinguish from legitimate emphasis
+
+A human writer reaches for «варто зазначити» once or twice in a long piece, in front of something that genuinely needed to be flagged because the reader wouldn't otherwise see its importance. The AI reaches for it as a metronome, often three to five times per page, in front of facts that don't need flagging at all.
+
+Test: for each instance, ask — *would the surrounding paragraph be weaker if the connective were deleted?* If no, the connective was a tick, not a tool.
+
+### Why this is harder to spot than overt drumroll
+
+The phrase is grammatically respectable. It appears in academic and journalistic prose. So readers' AI-detection antennae stay down. But the function is the same as the theatrical drumroll: choreograph the reader's reaction, manufacture importance the text hasn't earned. When you train yourself to notice the *rhythm* — every second or third paragraph leading with «Стоит отметить» — the disguise drops.
+
+### Adjacent pattern: significance-inflation connectives
+
+Closely related: *Importantly, ... / Crucially, ... / Critically, ... / Significantly, ...* as paragraph openers. RU: *Важно, что... / Принципиально, что... / Ключевым моментом является то, что...* These are drumroll-in-disguise with extra emphasis built into the adverb itself.
+
+---
+
+## 16. False idioms and calques
+
+LLMs are trained on multilingual corpora where the English distribution dominates. When the model generates Russian or Ukrainian, it sometimes maps an English idiom directly onto the target language, producing constructions that are grammatical but not idiomatic — they sound *plausible*, but a native speaker would not say them. The same happens in reverse for less-resourced languages: the model imports English phrasing into RU/UK because its statistical pull is stronger than the actual native usage.
+
+The canonical example for this skill: *«не дома в теме»* — calqued from English *«at home in [a subject]»* (= comfortable with, well-versed in). In Russian, *«дома в теме»* is not an idiom. A native speaker says *«разбирается в теме», «свободно ориентируется»*. The calque survives because each word is correct in isolation; only the construction is wrong.
+
+### How a calque differs from a borrowing
+
+Borrowings are conscious imports that have entered the language and become normative (*бэкап, дедлайн, фидбэк*). Calques are *unconscious* — the model has not consulted whether the target language uses this expression, it has only translated word-by-word. Borrowings appear in dictionaries; calques do not.
+
+### Multilingual examples
+
+**RU calques from English (typical AI output):**
+- *не дома в теме* ← *not at home in* (correct: *не разбирается в теме*)
+- *делать смысл / это делает смысл* ← *make sense* (correct: *иметь смысл, быть осмысленным*)
+- *брать решение* ← *take a decision* (correct: *принимать решение*)
+- *взять взгляд / бросить взгляд на ситуацию* ← *take a look* (in the wrong register — correct: *посмотреть, ознакомиться*)
+- *в конце дня* (в смысле *по существу*) ← *at the end of the day*
+- *в долгую* ← *in the long run* (gaining ground as slang, but in formal prose still reads as calque)
+- *положить на стол* (в смысле *вынести на обсуждение*) ← *put on the table*
+- *иметь точку* ← *have a point* (correct: *быть правым, иметь основания*)
+- *поднять вопрос вверх* / *эскалировать вверх* ← *escalate up*
+- *брать осознанные решения* ← *make conscious decisions* (correct: *принимать осознанные решения*)
+
+**UA calques from English (often via Russian AI training data):**
+- *не вдома в темі* ← *not at home in*
+- *робити сенс / це робить сенс* ← *make sense* (correct: *мати сенс*)
+- *брати рішення* ← *take a decision* (correct: *приймати рішення*)
+- *брати погляд* ← *take a look* (correct: *подивитись, ознайомитись*)
+- *у кінці дня* (в значенні *по суті*) ← *at the end of the day*
+
+**EN calques from formulaic training data (rarer, but exist):**
+- Russian/academic-style verbal nouns persisting in EN output: *the realization of the project* (correct: *carrying out / running the project*)
+- *to give a possibility to* ← Russian *дать возможность* (correct: *to allow / to let*)
+- *with the goal of...* over *to...* in plain prose
+
+### Why the calque survives in AI output
+
+Three reasons. First, the model has seen the English version many times in its training, and the word-by-word substitution into RU/UK produces something that scans grammatically. Second, the model has no embodied sense of *what people actually say* — only of *what could be said*. Third, post-training filters look for vocabulary tells more than for syntactic-idiomatic ones, so calques pass through where *delve* would have been caught.
+
+### Test
+
+For any suspect phrase, ask: *does a native speaker actually say this, or am I just understanding it?* Comprehensibility is not idiomacity. If you can imagine reading the phrase but can't imagine *saying* it without quote marks, it's likely a calque.
+
+When in doubt, search the phrase in the target language on a major search engine restricted to native-language sources. If the only hits are translated content, machine-generated content, or marketing pages — the construction has not entered native usage.
+
+### Pattern density signal
+
+One calque can happen in human writing too — bilinguals leak. But three or more in a single piece, especially when paired with abstraction-trap vocabulary (Section 12) and decorative triplets (Section 14), is a strong AI signature. Calques are particularly diagnostic because they survive even aggressive prompt instructions to "sound natural" — the model doesn't know the construction is non-native.
+
+---
+
 ## False Positives — Do NOT flag these alone
 
 - Perfect grammar
@@ -299,6 +452,7 @@ Stand-up comedy, podcast transcripts, motivational speaking, and children's writ
 - Letter-like formatting with salutations
 - Rule of three used sparingly and appropriately (common human technique since antiquity)
 - Em dashes in writers who habitually use them (check other samples if available)
+- A single decorative triplet, a single drumroll-in-disguise, or a single calque — these are tells only in clusters or at structural density
 
 ---
 
