@@ -6,9 +6,11 @@ This is not a definitive AI detector and does not prove authorship. It is design
 
 Works with any text: articles, emails, reports, marketing copy, Wikipedia drafts, social media posts.
 
+---
+
 ## What it does
 
-Scans text for characteristic signals across 12 categories:
+Scans text for characteristic signals across 16 categories:
 
 - **Vocabulary density** — overused words like *pivotal, delve, underscore, tapestry, meticulous*
 - **Content patterns** — significance inflation, "challenges" formula, vague attribution, "quietly" narratives, overgeneralization from few sources
@@ -22,6 +24,12 @@ Scans text for characteristic signals across 12 categories:
 - **Older model tells** — *"It's important to note that…"*, *"In conclusion,"* and similar
 - **Context-sensitive phrase restrictions** — phrases like *"genuinely"* or *"didn't see it coming"* used in contexts that don't earn the emotional weight
 - **Deeper structural tells (Romero, 2025)** — abstraction trap, sensing without sensing, treadmill effect, subtext vacuum
+- **Theatrical narration (multilingual, 2026)** — overt drumroll phrases, fake pauses, pseudo-dialogue with the reader, in EN/RU/UK
+- **Decorative triplets** — the synonymic-third-member subtype of rule-of-three ("rich, vibrant, and dynamic culture")
+- **Drumroll-in-disguise** — covert announcement via neutral connectives ("It's worth noting", "Стоит отметить", "Варто зазначити")
+- **False idioms and calques** — word-by-word translations of English idioms that read as plausible but non-native (e.g. *«не дома в теме»* ← *at home in*)
+
+---
 
 ## Signal strength
 
@@ -32,6 +40,7 @@ Not all signals are equal. The tool works by evaluating clusters, not isolated o
 - chat leakage and assistant phrases
 - placeholders and formatting artifacts
 - on modern models: deeper structural tells (Section 12) — abstraction without imagery, sensory descriptions that don't track reality, paragraphs that don't advance the argument, explicit explanation of every implication
+- on modern models: in-disguise patterns (Sections 14–16) — decorative triplets in clusters, drumroll-in-disguise as paragraph rhythm, false calques
 
 **Moderate signals**
 - repetitive structure and transitions
@@ -44,6 +53,9 @@ Not all signals are equal. The tool works by evaluating clusters, not isolated o
 - isolated buzzwords
 - generic polished phrasing
 - common stylistic patterns
+- a single decorative triplet, a single drumroll-in-disguise, or a single calque — these are tells only in clusters or at structural density
+
+---
 
 ## Output
 
@@ -53,14 +65,19 @@ For each detected signal:
 - short explanation
 
 Then:
+
 **Final verdict:** Likely AI / Possibly AI / Likely Human
 **Confidence:** Low / Medium / High
+
+---
 
 ## How to use
 
 Add `SKILL.md` as a skill in your Claude Cowork setup. Paste any text and ask:
 
 > "Check this text for AI tells"
+
+---
 
 ## Verdict logic
 
@@ -70,6 +87,8 @@ Add `SKILL.md` as a skill in your Claude Cowork setup. Paste any text and ask:
 
 The system weights patterns and repetition, not single words.
 
+---
+
 ## Limitations
 
 - Does not prove authorship
@@ -78,7 +97,9 @@ The system weights patterns and repetition, not single words.
 - Heavily edited AI text may not trigger obvious markers
 - High-quality human writing can appear "AI-like"
 - Different models produce different patterns
-- Newer models (GPT-5.1+, Claude 4+) actively suppress known tells; rely on Section 12 (deeper structural tells) when classic markers are absent
+- Newer models (GPT-5.1+, Claude 4+) actively suppress known tells; rely on Sections 12 and 14–16 (deeper structural tells and in-disguise patterns) when classic markers are absent
+
+---
 
 ## What this tool is for
 
@@ -87,8 +108,11 @@ The system weights patterns and repetition, not single words.
 - explainable analysis
 - understanding AI writing patterns
 
+---
+
 ## Based on
 
 - Wikipedia's community-maintained field guide on LLM writing patterns — refined through real editorial experience.
   Source: https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing
 - Alberto Romero, "10 Signs of AI Writing That 99% of People Miss" (Medium, December 2025) — basis for Section 12 (deeper structural tells)
+- Sections 14–16 (decorative triplets, drumroll-in-disguise, false idioms/calques) added based on practical observation in multilingual editorial review (EN/RU/UK), 2026
